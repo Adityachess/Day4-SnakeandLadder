@@ -8,39 +8,49 @@ public class SnakeAndLadder {
 
 		System.out.println("Welcome to Snake and Ladder game");
 
-		int choice = (int) (Math.random() * 3) + 1;
+		while (position <= 100) {
 
-		switch (choice) {
+			int choice = (int) (Math.random() * 3) + 1;
 
-		case 1:
-			System.out.println("Here is the Ladder");
+			switch (choice) {
 
-			int number = (int) (Math.random() * 6) + 1;
-			System.out.println("The number you have after the dice roll is :" + number);
-			position += number;
-			break;
+			case 1:
+				System.out.println("Here is the Ladder");
 
-		case 2:
-			System.out.println("Here is the snake");
+				int number = (int) (Math.random() * 6) + 1;
+				System.out.println("The number you have after the dice roll is :" + number);
+				position += number;
+				break;
 
-			number = (int) (Math.random() * 6) + 1;
-			System.out.println("The number you have after the dice roll is :" + number);
+			case 2:
+				System.out.println("Here is the snake");
 
-			if (position == 0) {
-				position = 0;
+				number = (int) (Math.random() * 6) + 1;
+				System.out.println("The number you have after the dice roll is :" + number);
+
+				if (position == 0) {
+					position = 0;
+				}
+				else if (position < 0) {
+					position = 1;
+				}
+				else {
+					position -= number;
+				}
+				break;
+
+			default:
+				System.out.println("Getting the number which neither has Snake or Ladder");
+				
+				number = (int) (Math.random() * 6) + 1;
+				System.out.println("The number you have after the dice roll is :" + number);
+				position += number;
 			}
-			else if (position < 0) {
-				position = 1;
-			}
-			else {
-				position -= number;
-			}
-			break;
-
-		default:
-			System.out.println("No Switch");
+			
+			System.out.println("The current Position of a Player is :" + position);
 		}
+		
+		System.out.println("The New position of a Player is :" + position);
 
 	}
-
 }
